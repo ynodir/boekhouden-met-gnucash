@@ -6,6 +6,121 @@ parent: BTW aangifte of aangifte omzetbelasting
 nav_order: 3
 ---
 
+## Preparation for processing
+At the end of the VAT return you will have seen whether you have to pay VAT on balance or
+whether you will receive a VAT refund from the Tax and Customs Administration.
+The payment or refund of the turnover tax goes through your business bank account.
+
+To ensure that you can easily process the bank transaction (the VAT that you have to pay
+or that you will receive back), we make an entry in the accounting of the VAT return.
+
+This entry ensures that one balance remains to be paid or refunded in the accounting
+for that quarter.
+
+You make the booking at the end of the declaration period. The turnover tax return was
+for the last quarter of 2019, so you make the entry as of December 31, 2019.
+
+We have made a table for the overview of the VAT amounts in the declaration and in the
+accounting. The VAT amounts must be set to “zero”. We therefore transfer all VAT amounts
+to one sales tax ledger account. It does not matter which VAT general ledger account 
+you use, as long as you always use the same one for “booking” and for the bank transaction
+of the turnover tax return.
+
+We use “180 Sales tax receivable”. We are going to transfer the amounts in the credit column
+to the debit column. The amounts are examples.
+
+| Name in the VAT return                                                 | Name in the accounts                             | Debit (VAT to be refunded) | Credit (VAT to be received) |
+|------------------------------------------------------------------------|--------------------------------------------------|----------------------------|-----------------------------|
+| 1a. Deliveries/services charged with a high rate                       | 185 Sales tax debt 21%                           |                            | € 138.84                    |
+| 1b. Deliveries/services taxed at a low rate                            | 186 Sales tax debt 9%                            |                            | € 48.00                     |
+| 1e. Deliveries/services taxed at 0% or not taxed at you                | n/a                                              |                            | -                           |
+| 2a. Deliveries/services where turnover tax has been transferred to you | 189 Debt turnover tax has been transferred to me |                            | € 50.00                     |
+| 5b. Input tax                                                          | 180 Value added tax receivable                   | € 289.11                   |                             |
+
+The transfer (journal entry) then looks like this. On balance we transfer € 236.84. 
+The € 289.11 to be refunded from the table above therefore decreases by € 236.84 
+due to the transfer.
+
+| General ledger account accounting | Debit  | Credit  |
+|-----------------------------------|--------|---------|
+| 185 Sales tax debt 21%            | €138   |         |
+| 186 Sales tax debt 9%             | € 98   |         |
+| 180 Sales tax receivable          |        | €236.84 |
+
+## The processing
+
+There are several ways to process the VAT return in the administration.
+We describe three ways here: a "quick-and-dirty" way, a "so-can-be" way and the decent way.
+We'll start with the proper way.
+
+### The decent way
+
+For the proper way, we use an extra account that we will first create if you had not already done so.
+This account is specifically intended for temporarily holding the final result of the VAT processing.
+If you already have this account, you can skip this step.
+
+#### Create Suspense account VAT
+
+Go to the 'Accounts' tab and choose New.
+
+Fill in:
+- Account name: 190 Suspense account VAT
+- Account number: 190
+- Account type: Assets
+- Main account: New main level account
+
+NB: The English term for suspense account is Suspense Account
+
+#### The booking itself
+
+We are now going to enter this booking. In this example we do this on the account 'Sales tax receivable', but in fact it does not matter, because we are going to create an entry that involves several accounts. GnuCash will then automatically place this entry in the affected accounts.
+
+On the 'Accounts' tab, double-click on the ledger account "180 Sales tax receivable". Now enter the last day of the quarter for which you filed the return as the date. Then enter a description, for example "Processing VAT return last quarter 2019".
+Now click on the button 'More book lines' in the toolbar at the top of your screen. You will now get a new yellow line. Use the tab key on your keyboard to go to the next line.
+
+We are now going to process the table above per line. Do this in the order it appears in the table, with the Pre-Tax account coming last. The numbers have been rounded off, because you only use whole numbers in the NL statement.
+
+We first click on the 'Account' column of this first new line. We can type in the account name here, but it's easier to use the pull-down menu. We choose the account `185 Debt turnover tax 21%` and enter the amount that we entered in the declaration, namely € 138, in the column `Increase`. We ensure that the column `Decrease` remains empty.
+
+We go to the next line. You will see that GnuCash automatically calculates the balance of the booking for us.
+We choose the account `186 Debt sales tax 9%` and again enter the amount that we have specified in the column `Increase`. Here, too, we ensure that the 'Decrease' column remains empty.
+
+We now fill in the line for the 'VAT receivable' account and in the column 'Decrease' we enter the amount that we have specified as input tax, namely the full rounded amount. It does not matter whether something remains on the bill or not, and whether you have rounded up or down.
+
+There is now a difference. We post this difference to the account `190 Suspense account VAT` by selecting that account for that line.
+
+We now record the booking by clicking on 'Create'.
+
+#### Payment to or from the tax authorities
+
+We now open the account `190 Suspense account VAT` by double-clicking on it in the Accounts overview.
+The balance of this account is now equal to the amount that you still have to reconcile with the Tax and Customs Administration. If the balance is positive, you must pay the Tax and Customs Administration, and if the balance is negative, the Tax and Customs Administration must repay that amount to you.
+
+You open the option 'Books' in the Actions menu. You now enter the amount that you must pay or receive. This amount is equal to the balance on the 'Suspended VAT account', but always positive. So if the balance is -30, enter 30.
+Now fill in the Date and Description fields.
+
+If you had to pay VAT to the Tax and Customs Administration, select `110 Bank` on the left and `190 VAT suspense account` on the right.
+If you had to receive VAT from the Tax Authorities, choose `190 Suspense account VAT` on the left and `110 Bank` on the right.
+
+Click OK. The payment has now been processed and the balance on the suspense account should be 0 again.
+
+### The so-can-do way
+
+This way is very similar to the way of the suspense account, but does not use a separate account for it, but the account `180 Pretax`.
+This way is slightly less transparent and therefore less correct than the proper way.
+
+The way of entering is almost the same as the way above, only you do not write the differences to the Suspense account, but to the Pretax account. If you have to pay VAT to the tax authorities, the balance on the Pretax account will be negative. You then process the payment to or from the Tax and Customs Administration in the same way, only here you also use the '180 Voorbelasting' account instead of the suspense account.
+
+### The quick-and-dirty way
+
+This way is slightly less correct than the so-can-it-too way. This method is only useful if you can make the payment to the tax authorities at the same time as the VAT processing. Usually this is not the case, because then you cannot make the difference between the moment of payment and the end of the VAT period.
+The previous methods put the processing of the VAT on the last day of the VAT period, but with the quick-and-dirty way this is only possible if you are going to get VAT back.
+
+The way of entering also works similar to the above methods, but now you enter the account `110 Bank` when making the closing entry if you have to pay VAT to the Tax Authorities. Then choose the moment of payment as the date.
+
+If you are going to receive VAT back, an amount will remain on the 'Input tax' account. As soon as you receive the amount back from the Tax Authorities, you transfer the amount from the Pretax account to the bank account via the "Book" option.
+
+## Original
 ## Voorbereiding van de verwerking
 
 Aan het einde van de btw-aangifte heb je gezien of je per saldo BTW moet betalen of dat je omzetbelasting terug krijgt van de Belastingdienst. Het betalen of terugkrijgen van de omzetbelasting loopt via je zakelijke bankrekening.

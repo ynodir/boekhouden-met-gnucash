@@ -6,7 +6,23 @@ parent: Overzichten
 nav_order: 1
 ---
 
+## Quarterly sales overview
 
+Under Reports, choose the 'Booking Report' and click 'Edit Report Options'.
+
+This automatically switches to the General tab of the options. Enter the beginning of the financial year you want to view as the start date. In most
+In some cases this will be 'Beginning of this year', but with the last VAT return 'Beginning of last year'.
+Select 'Today' under End date or 'End of previous year' for the last VAT return.
+
+Now go to the 'Accounts' tab and select the revenue accounts. Use Shift or Ctrl on Linux/Windows or Shift or Cmd on macOS to select multiple accounts.
+Now go to the 'Sort' tab and choose 'Date' under 'Primary key'.
+Under 'Primary subtotal for the date key', choose the option 'Per quarter'.
+
+Now choose 'Account name' at 'Secondary key', make sure that 'Secondary subtotal' is checked, just like 'Show subtotals only (hide transaction data)'. If you now click on 'OK', you will get a nice overview per quarter of the turnover per VAT rate.
+
+You can make this overview even more complete / beautiful by choosing the option 'Subtotal Table' on the 'Display' tab.
+
+## Original
 ## Kwartaaloverzicht omzet
 
 Kies onder Rapporten het `Boekingsverslag` en klik op `Rapportopties bewerken`.

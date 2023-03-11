@@ -6,6 +6,179 @@ parent: BTW aangifte of aangifte omzetbelasting
 nav_order: 2
 ---
 
+## The declaration
+
+Note: The original Accoo manual is incorrect in this area. See the explanation below
+if you want to know why.
+
+You need two different statements for the figures, namely the Trial Balance report and
+the Profit and Loss Statement report.
+
+Open GnuCash and go to Reports, Revenue and Expenses and Trial Balance.
+
+![Menu proefbalans]({{site.baseurl}}/assets/menu_reports_profits_balance.png)
+
+You will now see the trial balance window. We will use the numbers in the box later.
+
+![Weergave proefbalans]({{site.baseurl}}/assets/proefbalans_btw_highlights.png)
+
+We now open the “Profit and Loss Statement” report. This option is in the first image
+at the bottom.
+
+Click the Options icon at the top of the bar, or search for it in the drop-down menu
+if the button isn't visible. Then click on the General tab.
+
+![Algemene opties winst- en verliesrekening]({{site.baseurl}}/assets/profit_loss_report_general_options.png)
+
+Choose a date here at `Start date correction/closing` and at `Report date`. You can choose to
+enter a date yourself, but GnuCash has a number of handy quick selection options for both
+options:
+
+![Smartopties begindatum]({{site.baseurl}}/assets/smart_opties_begindatum.png)
+
+![Smartopties rapportdatum]({{site.baseurl}}/assets/smart_opties_rapportdatum.png)
+
+Usually you will choose `Start of last quarter` and `End of last quarter`. After selecting
+the correct data, click OK and your overview will be updated.
+
+![Winst- en verliesrekening omzet]({{site.baseurl}}/assets/profit_loss_revenue.png)
+
+We use the figures from the `Turnover` section. In this overview there is also a table
+costs under the turnover, but you only have to look at that when filling in the income tax.
+
+## Look up previous declarations
+This step is only necessary if sales invoices have been entered in a period for which
+the VAT declaration has already been made. In that case, the VAT has been credited to
+the corresponding `Debt turnover tax account`, but the turnover value of the invoice still
+falls under the original VAT period. As a result, the turnover figures are no longer
+correct as originally stated.
+
+If the VAT to be received or paid exceeds the aforementioned € 1000, a supplement form
+must be completed, with which the VAT return for that period is corrected.
+
+We now assume that the VAT amount remains below € 1000 and that we can process this
+in the next VAT return.
+
+Therefore look up the previous declarations of the year and add up the turnover per
+VAT rate. If necessary, use the [Quarterly overview turnover overview](../overviews/revenue_per_quarter)
+
+Now, in the options of the `Profit and loss statement`, set the start to the beginning
+of the year, and the end to the end of the quarter preceding the quarter for which you
+are submitting the VAT return. Now check whether the combined turnover per VAT rate of
+that period corresponds to the sum of the turnover as you entered it.
+
+If there is a difference and you have not stated enough turnover, add the difference
+to the new turnover figures.
+
+## Complete the declaration
+
+Now that you have obtained the necessary information from your accounting, it is time
+to file the VAT return. Go to the website of the Tax and Customs Administration and 
+log in there. You choose the quarter for which you want to file a return. You then
+get a number of pages.
+
+NB: We have chosen not to use images from the website of the Tax and Customs 
+Administration, because in principle these should speak for themselves.
+
+We specifically look here at the pages Performance domestic,
+
+On the “Domestic performance” page, you enter the turnover and the sales tax that
+you have charged to your customers.
+
+In the column "Amount on which turnover tax is calculated" you enter the turnover.
+In the “Sales tax” column, enter the VAT that you have charged to your customers.
+
+- “1a. Deliveries/services taxed at a high rate” is the turnover on which you have calculated 21% VAT.
+- “1b. Low-rate supplies/services” is the turnover on which you calculated 9% VAT.
+- “1c. Deliveries/services charged with other rates, except 0%” is a field that you almost never have to fill in. In our example this happens by chance, but we skip this for the sake of convenience. (Note: If you know of a good example for this, please let us know via the GitHub Issues)
+- “1d. Private use” here you enter the amount and VAT of private withdrawals. For example, if you drive privately in a car of your company, enter it here.
+- “1e. Deliveries/services taxed with 0% or not taxed at your place” is the turnover on which you have not charged VAT to your customer. For example, if you transfer the VAT to your customer according to the “reverse charge scheme”.
+
+### Fill in Domestic performance
+
+1a. Supplies / services taxed at high rate
+  * Ledger account “800 Sales 21% sales tax” = “Amount on which sales tax is calculated”.
+    In this example € 2702.00. If necessary, add the difference if there is a difference 
+    with the previous declaration.
+  * General ledger account “185 Sales tax debt 21%” = “Sales tax”. In this example € 90.42.
+
+1b. Low rate deliveries/services
+  * Ledger account “801 Sales 9% sales tax” = “Amount on which sales tax is calculated”.
+    In this example € 850.00. If necessary, add the difference if there is a difference
+    with the previous declaration.
+  * General ledger account “186 Sales tax debt 9%” = “Sales tax”. In this example € 45.00.
+
+1st. Deliveries/services taxed at 0% or not taxed at your expense
+  * Ledger account “802 Sales 0% sales tax” = “Amount on which sales tax is calculated”.
+    In this example € 450.00. If necessary, add the difference if there is a difference
+    with the previous declaration.
+  * Because the percentage is 0%, you cannot enter a VAT amount.
+
+### Completing reverse charge arrangements domestic
+
+On the “Domestic reverse charge arrangements” page, enter “2a. Deliveries/services
+where turnover tax has been transferred to you” the purchases where the VAT has been
+transferred to you.
+
+2a. Deliveries/services where turnover tax has been shifted to you
+  * General ledger account “189 Sales tax debt shifted to me” = “Sales tax”.
+    In this example €50.
+  * To find out what the purchase price was associated with the € 50 sales tax,
+    it is usually easiest to look up the invoices in the accounts that include
+    the reverse-charged VAT of € 50.00. In this example, this includes one invoice 
+    of € 238.10.
+
+### Fill in Performances to/abroad & Performances from abroad
+
+The pages “Performance to/abroad” and “Performance from abroad” are for entrepreneurs
+who export and/or import goods or services. The VAT on import and export is not taken
+into account here.
+
+### Fill in Pre-tax and small entrepreneurs
+
+The “Input tax and small entrepreneurs” page is the last page where you have to enter
+an amount from the accounting. Here you enter the VAT that you have paid to your suppliers.
+
+5a. Turnover tax (sections 1 to 4 inclusive)” is the total VAT that you have entered and
+that you must pay to the Tax and Customs Administration.
+
+5b. Preload
+  * General ledger account “180 Sales tax receivable” = “Sales tax”. In this example € 140.21.
+
+It does not matter whether you have paid 21% VAT or 9% VAT on your purchases, you only
+enter the VAT paid by you to your suppliers here in one amount.
+
+## Last VAT return of the year
+
+A special case is the last VAT return of the year, because a number of settlements also
+take place there. We will not discuss this further in this manual, but it is important
+to read this information carefully.
+
+Tax authorities: [Last VAT return of the year](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/btw_aangifte_doen_en_betalen/btw-aangifte-welke-wanneer-en-hoe/laatste_btw_aangifte_van_het_jaar)
+
+## Differences with the Accoo manual
+
+The manual above is different from Accoo's. The original manual suggests taking only
+the trial balance report and always choosing the beginning of the year as the start date
+of that report. In this way, sales invoices entered after processing the VAT period
+to which that sales invoice relates are included. However, there is a mismatch:
+the Tax and Customs Administration would like to have the turnover for that quarter,
+but the trial balance report only gives the total turnover since the last book close.
+We don't use that option in this guide, so those numbers are useless. The Profit and loss
+account overview does give you the option to view your turnover per VAT period.
+This overview only misses the sales invoices that belong to the closed VAT period,
+but that were entered after processing the VAT return.
+
+Please note: this only applies to sales invoices. This problem does not exist for
+purchase invoices, because they are not part of the turnover. It also just means
+that the sales figures may not be correct. The VAT debt is correct, because it is
+cumulative and not date-sensitive.
+
+The simplest solution has therefore been chosen, namely to manually compare the 
+turnover figures of the VAT return with those in GnuCash. If a sales invoice is
+entered later, it will be reflected in both the VAT and the turnover.
+
+## Original
 ## De aangifte
 
 _Let op: De originele handleiding van Accoo klopt niet op dit vlak. Zie de uitleg onderaan als je wilt weten waarom._

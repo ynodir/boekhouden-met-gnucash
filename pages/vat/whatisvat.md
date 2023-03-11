@@ -6,6 +6,87 @@ parent: BTW aangifte of aangifte omzetbelasting
 nav_order: 1
 ---
 
+## The VAT
+
+The VAT return involves submitting part of your company's financial data to the 
+Tax and Customs Administration.
+
+The Tax and Customs Administration has a website on which every entrepreneur can log in
+and easily enter his figures. The most important thing is that your accounting is correct,
+because the data you use for the turnover tax return comes directly from your accounting.
+
+## Reclaim and pay VAT
+
+You may “deduct” the VAT on business expenses. This means that you may deduct the VAT
+that you owe to your supplier from the VAT that you must pay to the Tax and Customs
+Administration.
+
+### Example 1: ask back
+You buy a box of copy paper for your company for € 15.75. Copy paper is charged with 21% VAT,
+so € 3.31. You then pay a total of € 15.75 + € 3.31 = € 19.06 for the box of copy paper.
+Because you use the copy paper for your company, you may deduct the € 3.31 VAT from the VAT
+you must pay in the VAT return.
+
+### Example 2: ask back
+You build a garden house for a customer. You buy wood with which you will build the home.
+In total, the wood costs € 242.00 including 21% VAT. Of the €242, €42 is VAT and €200 is
+for the wood. You may also deduct this € 42 in the VAT return.
+
+### Transfer example 3
+After the garden house has been built, you send an invoice to the customer for € 523.33.
+This amount consists of € 432.50 turnover and 21% VAT of € 90.83. The € 90.83 VAT must 
+be paid to the tax authorities during the VAT return.
+
+## Value Added Tax
+VAT is the abbreviation of “Value Added Tax”. In other words, VAT is the tax on the value
+that an entrepreneur adds through what he does as an entrepreneur. You can add value,
+for example, by working for a customer for an hour or by buying a product and then
+selling it for a higher price.
+
+In the example above, the added value (amounts excluding VAT) is:
+
+| Garden house sales invoice  | € 432.50  |
+| Minimum purchase of wood    | € 200.00- |
+| Minimum purchase copy paper | € 15.75   |
+
+This is €432.50 – €200 – €15.75 = €216.75.
+
+The entrepreneur has therefore added € 216.75 in value. The entrepreneur must pay VAT
+on this € 216.75. This is € 216.75 x 21% = € 45.52.
+
+We can also calculate this on the basis of the VAT that the entrepreneur has paid himself
+and charged to his customer, namely:
+
+| VAT sale garden house       | € 90.83  |
+| Min VAT purchasing wood     | € 42.00- |
+| Min VAT purchase copy paper | € 3.31-  |
+
+This is € 90.83 – € 42.00 – € 3.31 = € 45.52.
+
+On balance, the entrepreneur must therefore pay € 45.52 VAT.
+
+## File a report on time
+Those who do their own bookkeeping always run the risk of not being fully up to date
+when a VAT return has to be made. Due to busy times, illness or holidays, you may still
+have unpaid invoices on the declaration deadline.
+
+The Tax and Customs Administration has a leniency period of 7 days (you will receive
+a “notice of absence”). More information on the website of the Tax Authorities.
+
+## Correction less than € 1,000
+If your arrears in booking the invoices on balance (the VAT of all sales invoices
+minus the VAT of all purchase invoices) are less than € 1,000 VAT, you can still
+choose to submit the incomplete VAT return. With the next declaration you make sure
+that you are present and in this way you correct the backlog of the previous declaration.
+
+With a maximum of € 1,000 VAT applies to the total amount that you must pay or receive
+back on balance.
+
+If you find out that the difference is greater than € 1000 VAT, you can always fill in
+a "Supplement turnover tax". You then fill in your VAT return again with the correct
+information.
+
+## Original
 ## De BTW
 
 Bij de btw-aangifte gaat het er om dat een deel van de financiële gegevens van jouw bedrijf worden aangeleverd bij de Belastingdienst.
@@ -61,4 +142,3 @@ Als je achterstand in het boeken van de facturen per saldo (de btw van alle verk
 Met maximum van € 1.000 btw geldt voor het totale bedrag dat je per saldo moet betalen of terug krijgt.
 
 Kom je er achter dat het verschil toch groter is dan € 1000 btw, dan kun je altijd nog een “Suppletie omzetbelasting” invullen. Je vult je btw-aangifte dan opnieuw in met de juiste gegevens.
-
